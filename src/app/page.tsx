@@ -305,7 +305,6 @@ export default function Home() {
                       key={article.$id}
                       article={article}
                       onArticleClick={handleArticleClick}
-                      onGameClick={handleGameLinkClick}
                     />
                   ))}
                 </div>

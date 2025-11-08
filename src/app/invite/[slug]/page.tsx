@@ -169,10 +169,10 @@ export default function InviteRedeemPage({ params }: { params: Promise<{ slug: s
           {status === 'confirm' && invite && (
             <>
               <div className={styles.inviteDetails}>
-                <p className={styles.inviteText}>You've been invited to become the owner of:</p>
+                <p className={styles.inviteText}>You&apos;ve been invited to become the owner of:</p>
                 <h2 className={styles.gameName}>{invite.gameName}</h2>
                 <p className={styles.description}>
-                  As the owner, you'll be able to manage this game, upload updates, and control its presence on the platform.
+                  As the owner, you&apos;ll be able to manage this game, upload updates, and control its presence on the platform.
                 </p>
               </div>
               <div className={styles.buttonGroup}>

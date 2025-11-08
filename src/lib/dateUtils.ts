@@ -11,7 +11,7 @@ export function formatReleaseDate(dateString?: string): string {
       month: 'long',
       day: 'numeric'
     });
-  } catch (error) {
+  } catch {
     return 'TBA';
   }
 }

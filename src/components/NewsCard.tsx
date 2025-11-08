@@ -7,10 +7,9 @@ import styles from './NewsCard.module.css';
 interface NewsCardProps {
   article: NewsArticle;
   onArticleClick: (article: NewsArticle) => void;
-  onGameClick?: (gameId: string) => void;
 }
 
-export default function NewsCard({ article, onArticleClick, onGameClick }: NewsCardProps) {
+export default function NewsCard({ article, onArticleClick }: NewsCardProps) {
   const previewContent = article.content.length > 200 
     ? article.content.substring(0, 200) + '...' 
     : article.content;

@@ -60,7 +60,7 @@ export async function getCurrentUser() {
   if (!account) return null;
   try {
     return await account.get();
-  } catch (error) {
+  } catch {
     return null;
   }
 }

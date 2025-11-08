@@ -15,6 +15,14 @@ import { initAppwrite } from '@/lib/appwrite';
 import { formatReleaseDate } from '@/lib/dateUtils';
 import styles from './page.module.css';
 
+declare global {
+  interface Window {
+    Plyr: {
+      new (element: HTMLElement, options?: Record<string, unknown>): { destroy: () => void };
+    };
+  }
+}
+
 interface GameBuild {
   platform: string;
   file: string;
@@ -102,10 +110,10 @@ export default function GameDetailsPage({ params }: { params: Promise<{ id: stri
     const initPlyr = () => {
       if (!videoRef.current) return;
 
-      if ((window as any).Plyr) {
+      if (window.Plyr) {
         setTimeout(() => {
           if (videoRef.current) {
-            playerRef.current = new (window as any).Plyr(videoRef.current, {
+            playerRef.current = new window.Plyr(videoRef.current, {
               controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'settings', 'fullscreen'],
             });
           }
@@ -117,15 +125,15 @@ export default function GameDetailsPage({ params }: { params: Promise<{ id: stri
       if (existingScript) {
         const handleLoad = () => {
           setTimeout(() => {
-            if ((window as any).Plyr && videoRef.current) {
-              playerRef.current = new (window as any).Plyr(videoRef.current, {
+            if (window.Plyr && videoRef.current) {
+              playerRef.current = new window.Plyr(videoRef.current, {
                 controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'settings', 'fullscreen'],
               });
             }
           }, 100);
         };
         
-        if ((window as any).Plyr) {
+        if (window.Plyr) {
           handleLoad();
         } else {
           existingScript.addEventListener('load', handleLoad);
@@ -138,8 +146,8 @@ export default function GameDetailsPage({ params }: { params: Promise<{ id: stri
       script.async = true;
       script.onload = () => {
         setTimeout(() => {
-          if ((window as any).Plyr && videoRef.current) {
-            playerRef.current = new (window as any).Plyr(videoRef.current, {
+          if (window.Plyr && videoRef.current) {
+            playerRef.current = new window.Plyr(videoRef.current, {
               controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'settings', 'fullscreen'],
             });
           }
