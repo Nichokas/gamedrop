@@ -1,0 +1,14 @@
+{
+  "name": "slack-function",
+  "version": "1.0.0",
+  "description": "idk",
+  "main": "src/main.js",
+  "scripts": {
+    "build": "tar -czf ../slack-function.tar.gz package.json src/ README.md"
+  },
+  "dependencies": {
+    "node-appwrite": "^14.1.0"
+  },
+  "devDependencies": {},
+  "type": "commonjs"
+}
