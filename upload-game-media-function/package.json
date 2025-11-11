@@ -9,6 +9,9 @@
   "dependencies": {
     "node-appwrite": "^14.1.0"
   },
+  "scripts": {
+    "build": "tar -czf ../upload-game-media-function.tar.gz package.json src/ pnpm-lock.yaml"
+  },
   "devDependencies": {
     "@types/node": "^22.7.9",
     "prettier": "^3.3.3"
